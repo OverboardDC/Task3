@@ -45,11 +45,11 @@ public class View {
         }
     }
 
-    public void printMessage(String message) {
+    private void printMessage(String message) {
         System.out.println(message);
     }
 
-    public void printComplexMessage(String... strings) {
+    private void printComplexMessage(String... strings) {
         printMessage(concatenateString(strings));
     }
 

@@ -7,6 +7,8 @@ import com.training.homework.view.TextConstants;
 import com.training.homework.view.View;
 
 import java.util.Date;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class UserRegistrationController {
 
@@ -14,6 +16,8 @@ public class UserRegistrationController {
     private View view;
     private UtilController utilController;
 
+    private static final String BUNDLE_NAME = "regex";
+    private static final ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME, new Locale(""));
 
     UserRegistrationController(Model model, View view) {
         this.model = model;
@@ -21,9 +25,7 @@ public class UserRegistrationController {
     }
 
     public void addUser() {
-
         model.addUser(createUser());
-
     }
 
     private User createUser() {
@@ -52,21 +54,21 @@ public class UserRegistrationController {
 
     private String fillUserName() {
         view.printComplexValueInput(TextConstants.NAME);
-        String firstName = getStringInputValue(TextConstants.FIRST_NAME, RegexConstants.NAME_REGEX);
-        String lastName = getStringInputValue(TextConstants.LAST_NAME, RegexConstants.NAME_REGEX);
+        String firstName = getStringInputValue(TextConstants.FIRST_NAME, bundle.getString(RegexConstants.NAME_REGEX));
+        String lastName = getStringInputValue(TextConstants.LAST_NAME, bundle.getString(RegexConstants.NAME_REGEX));
         return lastName + TextConstants.WHITE_SPACE + firstName.charAt(0) + TextConstants.DOT;
     }
 
     private String fillUserMiddleName() {
-        return getStringInputUnnecessaryValue(TextConstants.MIDDLE_NAME, RegexConstants.NAME_REGEX);
+        return getStringInputUnnecessaryValue(TextConstants.MIDDLE_NAME, bundle.getString(RegexConstants.NAME_REGEX));
     }
 
     private String fillUserNickname() {
-        return getStringInputValue(TextConstants.NICKNAME, RegexConstants.NICKNAME_REGEX);
+        return getStringInputValue(TextConstants.NICKNAME, bundle.getString(RegexConstants.NICKNAME_REGEX));
     }
 
     private String fillUserComment() {
-        return getStringInputUnnecessaryValue(TextConstants.COMMENT, RegexConstants.COMMENT_REGEX);
+        return getStringInputUnnecessaryValue(TextConstants.COMMENT, bundle.getString(RegexConstants.COMMENT_REGEX));
     }
 
     private Group fillUserGroup() {
@@ -74,32 +76,32 @@ public class UserRegistrationController {
     }
 
     private String fillUserHomePhone() {
-        return getStringInputValue(TextConstants.HOME_PHONE, RegexConstants.HOME_PHONE_REGEX);
+        return getStringInputValue(TextConstants.HOME_PHONE, bundle.getString(RegexConstants.HOME_PHONE_REGEX));
     }
 
     private String fillUserMobilePhone() {
-        return getStringInputValue(TextConstants.MOBILE_PHONE, RegexConstants.MOBILE_PHONE_REGEX);
+        return getStringInputValue(TextConstants.MOBILE_PHONE, bundle.getString(RegexConstants.MOBILE_PHONE_REGEX));
     }
 
     private String fillUserAdditionalMobilePhone() {
-        return getStringInputUnnecessaryValue(TextConstants.ADDITIONAL_MOBILE_PHONE, RegexConstants.MOBILE_PHONE_REGEX);
+        return getStringInputUnnecessaryValue(TextConstants.ADDITIONAL_MOBILE_PHONE, bundle.getString(RegexConstants.MOBILE_PHONE_REGEX));
     }
 
     private String fillUserEmail() {
-        return getStringInputValue(TextConstants.EMAIL, RegexConstants.EMAIL_REGEX);
+        return getStringInputValue(TextConstants.EMAIL, bundle.getString(RegexConstants.EMAIL_REGEX));
     }
 
     private String fillUserSkype() {
-        return getStringInputValue(TextConstants.SKYPE, RegexConstants.SKYPE_REGEX);
+        return getStringInputValue(TextConstants.SKYPE, bundle.getString(RegexConstants.SKYPE_REGEX));
     }
 
     private String fillUserAddress() {
         view.printComplexValueInput(TextConstants.ADDRESS);
-        String postalCode = getStringInputValue(TextConstants.POST_INDEX, RegexConstants.POSTAL_CODE_REGEX);
-        String city = getStringInputValue(TextConstants.CITY, RegexConstants.CITY_REGEX);
-        String street = getStringInputValue(TextConstants.STREET, RegexConstants.STREET_REGEX);
-        Integer houseNumber = getIntInputValue(TextConstants.HOUSE_NUMBER, RegexConstants.HOUSE_NUMBER);
-        Integer flatNumber = getIntInputValue(TextConstants.FLAT_NUMBER, RegexConstants.FLAT_NUMBER);
+        String postalCode = getStringInputValue(TextConstants.POST_INDEX, bundle.getString(RegexConstants.POSTAL_CODE_REGEX));
+        String city = getStringInputValue(TextConstants.CITY, bundle.getString(RegexConstants.CITY_REGEX));
+        String street = getStringInputValue(TextConstants.STREET, bundle.getString(RegexConstants.STREET_REGEX));
+        Integer houseNumber = getIntInputValue(TextConstants.HOUSE_NUMBER, bundle.getString(RegexConstants.HOUSE_NUMBER));
+        Integer flatNumber = getIntInputValue(TextConstants.FLAT_NUMBER, bundle.getString(RegexConstants.FLAT_NUMBER));
         return postalCode + TextConstants.WHITE_SPACE + city +
                 TextConstants.WHITE_SPACE + street + TextConstants.WHITE_SPACE +
                 houseNumber + TextConstants.WHITE_SPACE + flatNumber;

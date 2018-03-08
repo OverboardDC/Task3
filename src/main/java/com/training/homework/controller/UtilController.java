@@ -35,19 +35,6 @@ public class UtilController {
         return !res.equals("") ? Integer.valueOf(res) : null;
     }
 
-    private String inputUnnecessaryValue(String field, String regex) {
-        String res;
-        view.printUnnecessaryInputValue(field);
-        while (true) {
-
-            if (!(res = scanner.nextLine()).matches(regex) && !res.equals("")) {
-                view.printWrongFieldInput(field);
-                continue;
-            }
-            break;
-        }
-        return res;
-    }
 
     public String inputUnnecessaryStringValue(String field, String regex) {
         String res = inputUnnecessaryValue(field, regex);
@@ -79,6 +66,20 @@ public class UtilController {
         view.printInputValue(field);
         while (!(scanner.hasNext() && (res = scanner.nextLine()).matches(regex))) {
             view.printWrongFieldInput(field);
+        }
+        return res;
+    }
+
+    private String inputUnnecessaryValue(String field, String regex) {
+        String res;
+        view.printUnnecessaryInputValue(field);
+        while (true) {
+
+            if (!(res = scanner.nextLine()).matches(regex) && !res.equals("")) {
+                view.printWrongFieldInput(field);
+                continue;
+            }
+            break;
         }
         return res;
     }
