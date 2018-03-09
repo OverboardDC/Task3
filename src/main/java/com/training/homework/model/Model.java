@@ -4,6 +4,12 @@ import com.training.homework.entity.User;
 
 import java.util.ArrayList;
 
+/**
+ * The model class responsible for business logic.
+ *
+ * @author  Eugene Kushpii
+ * @version 1.0
+ */
 public class Model {
 
     private ArrayList<User> users;

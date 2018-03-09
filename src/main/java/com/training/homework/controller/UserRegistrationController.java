@@ -10,6 +10,13 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * Sub controller which creates user entity with
+ * fields by manual input.
+ *
+ * @author  Eugene Kushpii
+ * @version 1.0
+ */
 public class UserRegistrationController {
 
     private Model model;
@@ -17,7 +24,7 @@ public class UserRegistrationController {
     private UtilController utilController;
 
     private static final String BUNDLE_NAME = "regex";
-    private static final ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME, new Locale(""));
+    private static final ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME, new Locale(TextConstants.LANGUAGE));
 
     UserRegistrationController(Model model, View view) {
         this.model = model;
@@ -25,14 +32,14 @@ public class UserRegistrationController {
     }
 
     public void addUser() {
-        model.addUser(createUser());
+        User user = createUser();
+        model.addUser(user);
+        view.printUserInfo(user);
     }
 
     private User createUser() {
         utilController = new UtilController(model, view);
-
         User user = new User();
-
         user.setName(fillUserName());
         user.setMiddleName(fillUserMiddleName());
         user.setNickName(fillUserNickname());
@@ -46,8 +53,6 @@ public class UserRegistrationController {
         user.setFullAddress(fillUserAddress());
         user.setAddingDate(fillUserAddingDate());
         user.setLastChangingDate(fillUserLastChangingDate());
-
-        System.out.println(user.toString());
         return user;
     }
 
@@ -88,7 +93,7 @@ public class UserRegistrationController {
     }
 
     private String fillUserEmail() {
-        return getStringInputValue(TextConstants.EMAIL, bundle.getString(RegexConstants.EMAIL_REGEX));
+        return getStringInputValue(TextConstants.EMAIL, bundle.getString(RegexConstants.EMAIL_REGEX)).toLowerCase();
     }
 
     private String fillUserSkype() {

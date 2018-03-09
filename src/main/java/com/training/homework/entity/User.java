@@ -4,6 +4,12 @@ import com.training.homework.enums.Group;
 
 import java.util.Date;
 
+/**
+ * The user entity.
+ *
+ * @author  Eugene Kushpii
+ * @version 1.0
+ */
 public class User {
 
     private String name;

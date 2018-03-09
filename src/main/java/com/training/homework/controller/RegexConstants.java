@@ -1,5 +1,12 @@
 package com.training.homework.controller;
 
+/**
+ * Regular expression constants for
+ * input validation.
+ *
+ * @author  Eugene Kushpii
+ * @version 1.0
+ */
 public interface RegexConstants {
 
     String NAME_REGEX = "name.regex";

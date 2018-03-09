@@ -1,14 +1,22 @@
 package com.training.homework.view;
 
+import com.training.homework.entity.User;
 import com.training.homework.enums.Group;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * The view class which completely responsible
+ * for UI.
+ *
+ * @author  Eugene Kushpii
+ * @version 1.0
+ */
 public class View {
 
     private static final String BUNDLE_NAME = "messages";
-    private static final ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME, new Locale(""));
+    private static final ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME, new Locale(TextConstants.LANGUAGE));
 
 
     public void printGreeting() {
@@ -43,6 +51,10 @@ public class View {
             printComplexMessage(Integer.toString(i + 1), TextConstants.WHITE_SPACE,
                     Group.values()[i].toString());
         }
+    }
+
+    public void printUserInfo(User user){
+        printMessage(user.toString());
     }
 
     private void printMessage(String message) {

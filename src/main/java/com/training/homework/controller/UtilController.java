@@ -7,6 +7,13 @@ import com.training.homework.view.View;
 
 import java.util.Scanner;
 
+/**
+ * Sub controller which manages command line
+ * input with different parameter types.
+ *
+ * @author  Eugene Kushpii
+ * @version 1.0
+ */
 public class UtilController {
 
     private Model model;

@@ -1,6 +1,14 @@
 package com.training.homework.view;
 
+/**
+ * Necessary constants for UI
+ *
+ * @author  Eugene Kushpii
+ * @version 1.0
+ */
 public interface TextConstants {
+
+    String LANGUAGE = "";
 
     String GREETING = "greeting";
     String FILL_FIELD = "fill.field";
@@ -41,6 +49,5 @@ public interface TextConstants {
     String LEFT_BRACKET = "(";
     String RIGHT_BRACKET = ")";
 
-    String NULL_SYMBOL = "0";
 
 }
